@@ -3,92 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RTX 5070 GAMING TRIO WHITE - MSI GPU STORE</title>
+  <title>Producto 2 - MSI GPU STORE</title>
   <link rel="stylesheet" href="front-end.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    .producto-detalle {
+    header {
+    background: linear-gradient(to left, #0077ff,#ffffff, #ffffff,#ffffff,#ffffff, #0077ff);
+    padding: 0%;
+}
+header img {
+    width: 40%;
+    height: auto;
+    display: block;
+
+}
+    .product-container {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
       gap: 20px;
-      padding: 40px 0;
     }
-    .producto-detalle .producto-imagen {
+    .product-images,
+    .product-description {
       flex: 1;
-      min-width: 300px;
-      max-width: 600px;
+      min-width: 500px;
     }
-    .producto-detalle .producto-imagen img {
+    /* Estilos para la galería de imágenes */
+    .cuerpo_principal {
+      text-align: center;
+    }
+    .firstView {
+      position: relative;
+    }
+    .foto_div {
+      position: relative;
+      display: inline-block;
+    }
+    .pic_producto {
       width: 100%;
+      max-width: 800px;
       height: auto;
-      border: 2px solid #ff0000;
-      border-radius: 10px;
+      display: block;
     }
-    .producto-detalle .producto-info {
-      flex: 1;
-      min-width: 300px;
-      max-width: 600px;
-      text-align: left;
+    .foto_blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      filter: blur(2px);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
     }
-    .producto-detalle .producto-info h1 {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      font-size: 28px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ff0000;
-      margin-bottom: 10px;
+    .foto_div:hover .foto_blur {
+      opacity: 1;
     }
-    .producto-detalle .producto-info p {
-      font-size: 16px;
-      margin-bottom: 10px;
+    .control_pic {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .producto-detalle .producto-info .precio {
-      font-size: 22px;
+    .foto_boton {
+      background: #ff0000;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .producTexto {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 4px 8px;
+      border-radius: 4px;
       font-weight: bold;
+      cursor: pointer;
+    }
+    /* Estilos para la descripción del producto */
+    .product-description h2 {
+      margin-top: 0;
       color: #ff0000;
     }
+    .product-description p,
+    .product-description li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
+    .product-description ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .product-description .precio {
+      font-size: 50px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+    footer {
+    background-color: #3d3f42;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+    .product-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .product-buttons button {
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }    
   </style>
 </head>
 <body>
+  
   <header>
-    <div class="container">
-      <img src="Images/Logo.png" alt="MSI GPU STORE">
-    </div>
+        <img src="Images/producto3.png" alt="Banner Producto 3">  
   </header>
+  
+  <!-- MAIN -->
   <main>
-    <div class="container">
-      <div class="producto-detalle">
-        <div class="producto-imagen">
-          <img src="Images/RTX5070_GAMING_TRIO_WHITE.jpg" alt="RTX 5070 GAMING TRIO WHITE">
+    <div class="product-container">
+      <!-- Galería de imágenes (columna izquierda) -->
+      <div class="product-images">
+        <div class="cuerpo_principal">
+          <div class="firstView">
+            <div class="foto_div">
+              <img class="pic_producto" id="pic_producto" src="Images/producto3_1.png" alt="Imagen del producto">
+              <div class="foto_blur"></div>
+              <div class="control_pic">
+                <button class="foto_boton" id="fotoBotonPrev">&lt;--</button>
+                <p class="producTexto" id="ppt0" onclick="mostrarImagen(0)">1</p>
+                <p class="producTexto" id="ppt1" onclick="mostrarImagen(1)">2</p>
+                <p class="producTexto" id="ppt2" onclick="mostrarImagen(2)">3</p>
+                <button class="foto_boton" id="fotoBotonNext">--&gt;</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="producto-info">
-          <h1>RTX 5070 GAMING TRIO WHITE</h1>
-          <p>La RTX 5070 GAMING TRIO WHITE combina un diseño exclusivo en acabado blanco con la potencia de la tecnología NVIDIA para ofrecer gráficos de alta calidad y un rendimiento excepcional. Ideal para gamers que buscan destacar.</p>
-          <p class="precio">$699.99</p>
-        </div>
+      </div>
+      
+      <!-- Descripción del producto (columna derecha) -->
+      <div class="product-description">
+        <h2>RTX 5090 32G GAMING TRIO OC</h2>
+        <h3>Características:</h3>
+        <ul>
+          <li>Impulsada por la arquitectura NVIDIA Blackwell y DLSS 4.</li>
+          <li>Frecuencias del Núcleo:
+            <ul>
+              <li>Rendimiento Extremo: 2497 MHz (MSI Center)</li>
+              <li>Boost: 2482 MHz (Modo GAMING y SILENT)</li>
+            </ul>
+          </li>
+          <li>Diseño Térmico TRI FROZR 4: Ventiladores mejorados, control de flujo de aire y diseño térmico para ofrecer una refrigeración superior y un funcionamiento más silencioso.</li>
+          <li>Ventilador STORMFORCE: Siete aspas, texturas en forma de garra y un arco circular que están diseñados para crear un flujo de aire óptimo con el mínimo ruido.</li>
+          <li>Baseplate de cobre con revestimiento de níquel: El calor de la GPU y la memoria se capturan rápidamente en una base de cobre con revestimiento de níquel y se transfiere eficientemente.</li>
+          <li>Core Pipes: Cuentan con un diseño cuadrado para maximizar el contacto con la base de la GPU y gestionar el calor de manera óptima.</li>
+          <li>Metal Backplate: Una placa trasera metálica de refuerzo, con ventilaciones de flujo de aire y almohadillas térmicas, mejora la refrigeración.</li>
+          <li>Wave Curved 4.0: Los bordes en forma de onda, diseñados con precisión y con aspas de diferentes alturas, mejoran el flujo de aire y reducen las turbulencias.</li>
+          <li>Air Antegrade Fin 2.0: Las aspas cuentan con un corte en forma de V y un diseño de alturas variables en el paso del flujo de aire para optimizar la eficiencia del flujo.</li>
+          <li>BIOS Dual: Te da la opción de priorizar el máximo rendimiento en el modo GAMING o un bajo nivel de ruido en el modo SILENT.</li>
+          <li>MSI Center: El exclusivo software MSI Center te permite monitorear, ajustar y optimizar los productos MSI en tiempo real.</li>
+          <li>Afterburner: El software más reconocido y ampliamente utilizado para el overclocking de tarjetas gráficas te ofrece un control total.</li>
+        </ul>
+        <p class="precio">2799,00 €</p>
+        <div class="product-buttons">
+            <button onclick="window.location.href='front-end.html'">Volver a la Página Principal</button>
+            <button onclick="agregarAlCarrito()">Añadir al Carrito</button>
+          </div>
       </div>
     </div>
   </main>
+  
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-info container">
-      <div class="footer-content">
-        <div class="sobre-nosotros">
-          <h4>Sobre Nosotros</h4>
-          <p>Somos una tienda especializada en productos MSI, ofreciendo calidad y soporte para gamers y entusiastas de la tecnología.</p>
-        </div>
-        <div class="footer-logo">
-          <img src="Images/Logo.png" alt="MSI GPU STORE">
-        </div>
-        <div class="contacto">
-          <h4>Contacto</h4>
-          <p>Email: info@msigpustore.com</p>
-        </div>
-      </div>
+    <div class="container">
       <p>© 2025 MSI GPU STORE.</p>
     </div>
   </footer>
+  
+  <!-- JavaScript para cambiar la imagen principal -->
+  <script>
+    // Array con las rutas de las imágenes del producto
+    const images = [
+      "Images/producto3_1.png",
+      "Images/producto3_2.png",
+      "Images/producto3_3.png"
+    ];
+    
+    let currentImageIndex = 0;
+    
+    function mostrarImagen(index) {
+      if (index >= 0 && index < images.length) {
+        currentImageIndex = index;
+        document.getElementById("pic_producto").src = images[currentImageIndex];
+      }
+    }
+    
+    document.getElementById("fotoBotonPrev").addEventListener("click", function() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      mostrarImagen(currentImageIndex);
+    });
+    
+    document.getElementById("fotoBotonNext").addEventListener("click", function() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      mostrarImagen(currentImageIndex);
+    });
+  </script>
 </body>
 </html>
