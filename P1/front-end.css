@@ -75,13 +75,18 @@ main {
 }
 
 
-.productos > .producto:first-child img {
+.productos a:first-child img {
     width: 370px;      
     height: 320px;     
     object-fit: cover; 
     overflow: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit; 
+  }
+  
 
 .producto img {
     width: 400px;
@@ -101,6 +106,12 @@ main {
 .producto p {
     font-size: 14px;
     margin-top: 5px;
+    color: #fff;
+}
+
+p {
+    font-size: 16px;
+    color: #ccc;
 }
 
 /* ----- FOOTER ----- */

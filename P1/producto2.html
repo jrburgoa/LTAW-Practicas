@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto 2 - MSI GPU STORE</title>
+  <link rel="stylesheet" href="front-end.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    header {
+    background: linear-gradient(to left, #0077ff,#ffffff, #ffffff,#ffffff,#ffffff, #0077ff);
+    padding: 0%;
+}
+header img {
+    width: 50%;
+    height: auto;
+    display: block;
+
+}
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .product-images,
+    .product-description {
+      flex: 1;
+      min-width: 500px;
+    }
+    /* Estilos para la galería de imágenes */
+    .cuerpo_principal {
+      text-align: center;
+    }
+    .firstView {
+      position: relative;
+    }
+    .foto_div {
+      position: relative;
+      display: inline-block;
+    }
+    .pic_producto {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      display: block;
+    }
+    .foto_blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      filter: blur(2px);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .foto_div:hover .foto_blur {
+      opacity: 1;
+    }
+    .control_pic {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .foto_boton {
+      background: #ff0000;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .producTexto {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Estilos para la descripción del producto */
+    .product-description h2 {
+      margin-top: 0;
+      color: #ff0000;
+    }
+    .product-description p,
+    .product-description li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
+    .product-description ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .product-description .precio {
+      font-size: 50px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+    footer {
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+    .product-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .product-buttons button {
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }    
+  </style>
+</head>
+<body>
+  
+  <header>
+        <img src="Images/producto2.png" alt="Banner Producto 1">  
+  </header>
+  
+  <!-- MAIN -->
+  <main>
+    <div class="product-container">
+      <!-- Galería de imágenes (columna izquierda) -->
+      <div class="product-images">
+        <div class="cuerpo_principal">
+          <div class="firstView">
+            <div class="foto_div">
+              <img class="pic_producto" id="pic_producto" src="Images/producto2_1.png" alt="Imagen del producto">
+              <div class="foto_blur"></div>
+              <div class="control_pic">
+                <button class="foto_boton" id="fotoBotonPrev">&lt;--</button>
+                <p class="producTexto" id="ppt0" onclick="mostrarImagen(0)">1</p>
+                <p class="producTexto" id="ppt1" onclick="mostrarImagen(1)">2</p>
+                <p class="producTexto" id="ppt2" onclick="mostrarImagen(2)">3</p>
+                <button class="foto_boton" id="fotoBotonNext">--&gt;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Descripción del producto (columna derecha) -->
+      <div class="product-description">
+        <h2>RTX 5080 GAMING TRIO OC</h2>
+        <h3>Características:</h3>
+        <ul>
+          <li>Impulsada por la arquitectura NVIDIA Blackwell y DLSS 4.</li>
+          <li>Frecuencias del núcleo:
+            <ul>
+              <li>Rendimiento extremo: 2715 MHz (MSI Center)</li>
+              <li>Boost: 2700 MHz (modo GAMING y SILENT)</li>
+            </ul>
+          </li>
+          <li>Diseño térmico TRI FROZR 4: Ventiladores mejorados, control de flujo de aire y diseño térmico que ofrecen una refrigeración superior y una operación más silenciosa.</li>
+          <li>Ventilador STORMFORCE: Siete aspas, textura de garra y un arco circular diseñados para un flujo de aire óptimo con un ruido mínimo.</li>
+          <li>Base de cobre niquelado: El calor de la GPU y la memoria se captura rápidamente con una base de cobre niquelado y se transfiere de manera eficiente.</li>
+          <li>Core pipes: Presentan un diseño cuadrado para maximizar el contacto con la base de la GPU y garantizar una gestión térmica óptima.</li>
+          <li>Metal Backplate: Una placa trasera de metal reforzada con ventilaciones de flujo de aire y almohadillas térmicas mejora la refrigeración.</li>
+          <li>Wave Curved 4.0: Los bordes en forma de onda diseñados con precisión y un diseño de aspas de diferentes alturas mejoran el flujo de aire y reducen las turbulencias.</li>
+          <li>Air Antegrade Fin 2.0: Las aspas cuentan con un corte en forma de V y un diseño de alturas variables en el paso del flujo de aire para optimizar la eficiencia del flujo.</li>
+          <li>BIOS dual: Te permite elegir entre priorizar el máximo rendimiento en modo GAMING o bajo ruido en modo SILENT.</li>
+          <li>MSI Center: El software te permite elegir entre priorizar el máximo rendimiento en modo GAMING o bajo ruido en modo SILENT.</li>
+          <li>Afterburner: El software te da control total con el programa de overclocking de tarjetas gráficas más reconocido y ampliamente utilizado en el mundo.</li>
+        </ul>
+        <p class="precio">1399,00 €</p>
+        <div class="product-buttons">
+            <button onclick="window.location.href='front-end.html'">Volver a la Página Principal</button>
+            <button onclick="agregarAlCarrito()">Añadir al Carrito</button>
+          </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 MSI GPU STORE.</p>
+    </div>
+  </footer>
+  
+  <!-- JavaScript para cambiar la imagen principal -->
+  <script>
+    // Array con las rutas de las imágenes del producto
+    const images = [
+      "Images/producto2_1.png",
+      "Images/producto2_2.png",
+      "Images/producto2_3.png"
+    ];
+    
+    let currentImageIndex = 0;
+    
+    function mostrarImagen(index) {
+      if (index >= 0 && index < images.length) {
+        currentImageIndex = index;
+        document.getElementById("pic_producto").src = images[currentImageIndex];
+      }
+    }
+    
+    document.getElementById("fotoBotonPrev").addEventListener("click", function() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      mostrarImagen(currentImageIndex);
+    });
+    
+    document.getElementById("fotoBotonNext").addEventListener("click", function() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      mostrarImagen(currentImageIndex);
+    });
+  </script>
+</body>
+</html>

@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MSI GPU STORE</title>
   <link rel="stylesheet" href="front-end.css">
+  <script>
+    function handleError(event) {
+        let resource = event.target.src || event.target.href || 'desconocido';
+        window.location.href = 'error.html?resource=' + encodeURIComponent(resource);
+    }
+    window.addEventListener('error', function(event) {
+        if (event.target.tagName === 'IMG' || event.target.tagName === 'LINK' || event.target.tagName === 'SCRIPT') {
+            handleError(event);
+        }
+    }, true);
+  </script>
 </head>
 <body>
 
@@ -21,21 +32,27 @@
       <section class="productos-destacados">
         <h2>Productos Destacados</h2>
         <div class="productos">
-          <div class="producto">
-            <img src="Images/RTX5070.jpg" alt="RTX 5070">
-            <h3>RTX 5070</h3>
-            <p>Potente GPU con tecnología de última generación.</p>
-          </div>
-          <div class="producto">
-            <img src="Images/RTX5080.png" alt="RTX 5080">
-            <h3>RTX 5080</h3>
-            <p>Rendimiento increíble para gaming y creación de contenido.</p>
-          </div>
-          <div class="producto">
-            <img src="Images/RTX5090.png" alt="RTX 5090">
-            <h3>RTX 5090</h3>
-            <p>Máxima potencia en gráficos y eficiencia.</p>
-          </div>
+          <a href="producto1.html">
+            <div class="producto">
+              <img src="Images/RTX5070.jpg" alt="RTX 5070">
+              <h3>RTX 5070</h3>
+              <p>Potente GPU con tecnología de última generación.</p>
+            </div>
+          </a>
+          <a href="producto2.html">
+            <div class="producto">
+              <img src="Images/RTX5080.png" alt="RTX 5080">
+              <h3>RTX 5080</h3>
+              <p>Rendimiento increíble para gaming y creación de contenido.</p>
+            </div>
+          </a>
+          <a href="producto3.html">
+            <div class="producto">
+              <img src="Images/RTX5090.png" alt="RTX 5090">
+              <h3>RTX 5090</h3>
+              <p>Máxima potencia en gráficos y eficiencia.</p>
+            </div>
+          </a>
         </div>
       </section>
     </div>
@@ -45,18 +62,13 @@
   <footer>
     <div class="footer-info container">
       <div class="footer-content">
-        <!-- Sección "Sobre Nosotros" a la izquierda -->
         <div class="sobre-nosotros">
           <h4>Sobre Nosotros</h4>
-          <p>
-            Somos una tienda especializada en ofrecer los mejores productos MSI, con garantía de calidad y soporte para gamers y entusiastas de la tecnología.
-          </p>
+          <p>Somos una tienda especializada en ofrecer los mejores productos MSI, con garantía de calidad y soporte para gamers y entusiastas de la tecnología.</p>
         </div>
-        <!-- Logo centrado -->
         <div class="footer-logo">
           <img src="Images/Logo.png" alt="MSI GPU STORE">
         </div>
-        <!-- Sección "Contacto" a la derecha -->
         <div class="contacto">
           <h4>Contacto</h4>
           <p>Email: info@msigpustore.com</p>
