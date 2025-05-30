@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.productos-destacados {
+    padding: 20px;
+}
+
+.productos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+.producto img {
+    width: 200px;
+    height: auto;
+}
+
+.producto h3 {
+    color: #FFD700;
+}
+
+.producto p {
+    font-size: 14px;
+}
+
+footer {
+    background-color: #4CAF50;
+    padding: 10px;
+    margin-top: 20px;
+}

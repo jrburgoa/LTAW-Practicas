@@ -1,26 +1,42 @@
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-//-- Definir el puerto a utilizarAdd commentMore actions
-const PUERTO = 8081;
+const PORT = 8001;
+const DIRECTORY = __dirname; // Directorio donde están los archivos
 
-//-- Crear el servidor
+// Función para obtener el tipo de contenido según la extensión del archivo
+const getContentType = (ext) => {
+    const mimeTypes = {
+        '.html': 'text/html',
+        '.css': 'text/css',
+        '.js': 'application/javascript',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.png': 'image/png',
+        '.gif': 'image/gif',
+    };
+    return mimeTypes[ext] || 'application/octet-stream';
+};
+
 const server = http.createServer((req, res) => {
-    
-  //-- Indicamos que se ha recibido una petición
-  console.log("Petición recibida!");
+    const filePath = path.join(DIRECTORY, req.url === '/' ? 'front-end.html' : req.url);
+    const ext = path.extname(filePath);
 
-  //-- Cabecera que indica el tipo de datos del
-  //-- cuerpo de la respuesta: Texto plano
-  res.setHeader('Content-Type', 'text/plain');
+    console.log(`Solicitud recibida: ${req.url}`); // Mostrar en terminal la solicitud
 
-  //-- Mensaje del cuerpo
-  res.write("Soy el Happy server!!\n");
-
-  //-- Terminar la respuesta y enviarla
-  res.end();
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            console.error(`Error al leer el archivo: ${filePath}`);
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            res.end('<h1>404 - Recurso no encontrado</h1>');
+        } else {
+            res.writeHead(200, { 'Content-Type': getContentType(ext) });
+            res.end(data);
+        }
+    });
 });
 
-//-- Activar el servidor: ¡Que empiece la fiesta!
-server.listen(PUERTO);
-
-console.log("Happy server activado!. Escuchando en puerto: " + PUERTO);Add comment
+server.listen(PORT, () => {
+    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+});
