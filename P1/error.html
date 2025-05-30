@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VRshop</title>
+    <link rel="icon"  href="https://cdn-icons-png.flaticon.com/512/3646/3646958.png" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/index.css">
+    <script type="text/javascript" src="/codigos/index.js"></script>
+</head>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: rgb(214, 178, 178);
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+header{
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  color: #eb0909;
+  background-color: #e2a90d;
+  
+}
+.header_Menu{
+  width: 100%;
+  height: 3vh;
+  text-align: center;
+  border-bottom: 1px solid #1173e4;
+  border-top: 1px solid #1173e4;
+  background-color: #1173e4;
+}
+
+.logo0 {
+  width: 45px; /* Tamaño del logo */
+  height: auto; /* Altura automática para mantener la proporción */
+  margin-right: 10px; /* Espacio entre el logo y el texto */
+  vertical-align: middle; /* Alinear verticalmente con el texto */
+}
+
+.menu_boton{
+  border-radius: 8px;
+  margin-top: 0.5vh;
+  margin-right: 1vw;
+  font-size: 0.80vw;
+  font-weight: 550;
+  width: 8vw;
+  border: none;
+  color: #fafafa;
+  background-color: #1b0594;
+  box-shadow: 0px 2px 2px rgba(62, 62, 62, 0.2),
+              0px -2px 2px rgba(62, 62, 62, 0.2),
+              2px  0px 2px rgba(62, 62, 62, 0.2),
+              -2px 0px 2px rgba(62, 62, 62, 0.2);
+              
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease
+}
+.menu_boton:hover{
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2),
+              0px -3px 3px rgba(0, 0, 0, 0.3),
+              3px  0px 3px rgba(0, 0, 0, 0.3),
+              -3px 0px 3px rgba(0, 0, 0, 0.3);
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.menu_boton:active{
+  box-shadow: none;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+#logo1{
+  text-align: left;
+  margin-left: 2vw;
+  margin-top: 0.5vh;
+  font-size: 3vh;
+  color: #000000;
+  text-shadow: 
+    -1px -1px 0 #fcfbfb,  
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     1px  1px 0 #ffffff;
+}
+
+#eslogan{
+  text-align: left;
+  margin-left: 5.2vw;
+  margin-top: -2.6vh;
+  font-size: 1.2vh;
+  color: #ffffff;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+.Cuerpo_Principal{
+  margin: auto;
+  margin-top: 10vh;
+  font-size: 4vh;
+  width: 100%;
+  min-height: 65vh;
+  text-align: center;
+  color: #3b3b3b;
+  background-color:  rgb(214, 178, 178);
+  box-sizing: content-box;
+}
+
+.Texto_pro{
+  font-size: 9.5vh;
+  margin-left: 5vw;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  font-weight: 600;
+  text-align: left;
+  --bg-size: 400%;
+  --color-one: hsl(120, 100%, 50%);
+  --color-two: hsl(313, 95%, 55%);
+  --color-three: hsl(29, 89%, 47%);
+  --color-four: hsl(165, 89%, 47%);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-three),
+                var(--color-four),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 20s infinite linear;
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 10s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+.ventasTop{
+  margin-top: 12vh;
+  margin-bottom: 5vh;
+}
+
+.producto_selector{
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+}
+
+.producto{
+  margin: auto;
+  font-size: 4vh;
+  min-width: 15vw;
+  width: 18vw;
+  height: 45vh;
+  border: none;
+  border-radius: 24px;
+  background-color: #fafafa;
+  overflow: hidden; 
+  position: relative;
+  z-index: 0;
+  box-shadow: 0px 8px 8px rgba(62, 62, 62, 0.2),
+              0px -8px 8px rgba(62, 62, 62, 0.2),
+              8px  0px 8px rgba(62, 62, 62, 0.2),
+              -8px 0px 8px rgba(62, 62, 62, 0.2);
+              
+  transition: box-shadow 0.3s ease, height 0.3s ease;
+}
+
+.producto:hover{
+  height: 50vh;
+  box-shadow: 0px 12px 8px rgba(0, 0, 0, 0.2),
+              0px -8px 8px rgba(0, 0, 0, 0.3),
+              12px  0px 8px rgba(0, 0, 0, 0.3),
+              -12px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.producto .Titulopro{
+  font-size: 2.5vh;
+  font-weight: 550;
+  text-align: left;
+  margin-left: 1vw;
+  position: absolute;
+  top: 1vh; /* ajusta la posición vertical del texto */
+  left: 0.5vw; /* ajusta la posición horizontal del texto */
+  color: #fafafa;
+  text-shadow: -0.5px -0.5px 0 rgb(41, 41, 41), 0.5px -0.5px 0 rgb(41, 41, 41), -0.5px 0.5px 0 rgb(41, 41, 41), 0.5px 0.5px 0 rgb(41, 41, 41);
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+}
+.producto .SubtituloPro{
+  font-size: 1.5vh;
+  font-weight: 550;
+  text-align: left;
+  margin-left: 1vw;
+  margin-top: -2.25vh;
+  position: absolute;
+  top: 10vh; /* ajusta la posición vertical del texto */
+  left: 0.5vw; /* ajusta la posición horizontal del texto */
+  color: #fafafa;
+  text-shadow: -0.5px -0.5px 0 rgb(41, 41, 41), 0.5px -0.5px 0 rgb(41, 41, 41), -0.5px 0.5px 0 rgb(41, 41, 41), 0.5px 0.5px 0 rgb(41, 41, 41);
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+}
+
+.producto .fotoPro{
+  width: 100%; /* ajusta el ancho de la imagen al 100% del contenedor */
+  height: 100%; 
+  border-radius: 8px;
+  z-index: -5;
+  object-fit: cover;
+}
+
+.producto .ButtonPro{
+  position: absolute;
+  top: 33.5vh; /* ajusta la posición vertical del texto */
+  left: -8vw; /* ajusta la posición horizontal del texto */
+  height: 3vh;
+  border: none;
+  border-radius: 8px;
+  font-size: 2vh;
+  margin-left: 10vw;
+  background-color: #ffffff;
+  color:#000000;
+  z-index: 5;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2), 0 -4px 4px rgba(0,0,0,0.2);
+  transition: top 0.3s ease , height 0.3s ease ,font-size 0.3s ease ,font-weight 0.3s ease;
+  font-family: Helvetica, sans-serif;
+}
+
+.producto .ButtonPro:hover{
+  height: 3.5vh;
+  font-size: 2.1vh;
+  font-weight: 600;
+  --bg-size: 400%;
+  --color-one: hsl(120, 100%, 50%);
+  --color-two: hsl(313, 95%, 55%);
+  --color-three: hsl(29, 89%, 47%);
+  --color-four: hsl(165, 89%, 47%);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-three),
+                var(--color-four),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+
+  animation: move-bg 20s infinite linear;
+}
+
+.producto .ButtonPro:active{
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.producto:hover .ButtonPro{
+  top: 40.5vh; /* ajusta la posición vertical del texto */
+}
+
+footer {
+  position: fixed; /* Hacer que el footer sea fijo */
+  bottom: 0; /* Alinear el footer en la parte inferior */
+  display: block;
+  min-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fafafa;
+  background-color: #1173e4;
+  text-align: center;
+  z-index: 9999; /* Asegurar que el footer esté sobre otros elementos si es necesario */
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+  height: 180px; /* Ajustar la altura del footer */
+}
+
+footer button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fafafa;
+  padding: 5px 20px; /* Ajustar el padding del botón */
+  border-radius: 5px;
+  margin: 5px; /* Ajustar el margen del botón */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-text {
+  margin-bottom: 5px; /* Ajustar el margen inferior del texto del footer */
+}
+
+
+
+/* Establecer el ancho del scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Establecer el color del thumb y del track del scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: #747474;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+</style>
+<body>
+    <header>
+        
+        <h1 id="logo1" onclick="location.href='/';"><img class= "logo0" src="imagenes/vr.png">VRshop</h1>
+        <h2 id="eslogan" onclick="location.href='/';">Vive la vida en realidad aumentada.</h2>
+        <div class="header_Menu">
+            <button class="menu_boton" onclick="location.href='/';">Inicio</button>
+            <button class="menu_boton" onclick="location.href='/visionPro.html';">Apple vision pro</button>
+            <button class="menu_boton" onclick="location.href='/HTCvive.html';">HTC vive</button>
+            <button class="menu_boton" onclick="location.href='/metaQuest2.html';">Meta quest 2</button>
+            <button class="menu_boton" onclick="location.href='/playVR.html';">Play Sation VR</button>
+            <button class="menu_boton" onclick="location.href='/otros.html';">Otros</button>
+        </div>
+    </header>
+
+    <div class="Cuerpo_Principal">
+        <div class="ventasTop">
+            <p class="Texto_pro">Todo lo que necesitas.</p>
+            <div class="producto_selector opacidad_2">
+                <div class="producto">
+                    <p class="Titulopro">Apple Vision Pro</p>
+                    <p class="SubtituloPro">Lo más novedoso</p>
+                    <img class="fotoPro" src="imagenes/mv_apple_0_0.png">
+                    <button class="ButtonPro" onclick="location.href='/visionPro.html';">Saber más</button>
+                </div>
+                <div class="producto">
+                    <p class="Titulopro">HTC Vive</p>
+                    <p class="SubtituloPro">Lo más novedoso</p>
+                    <img class="fotoPro" src="imagenes/mv_htc_0_0.png">
+                    <button class="ButtonPro" onclick="location.href='/HTCvive.html';">Saber más</button>
+                </div>
+                <div class="producto">
+                    <p class="Titulopro">Meta Quest</p>
+                    <p class="SubtituloPro">Lo más novedoso</p>
+                    <img class="fotoPro" src="imagenes/mv_meta_0_0.png">
+                    <button class="ButtonPro" onclick="location.href='/metaQuest2.html';">Saber más</button>
+                </div>
+                <div class="producto">
+                    <p class="Titulopro">Play Station VR 2</p>
+                    <p class="SubtituloPro">Lo más novedoso</p>
+                    <img class="fotoPro" src="imagenes/mv_play_0_0.png">
+                    <button class="ButtonPro" onclick="location.href='/play.html';">Saber más</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <button onclick="scrollToTop()">Volver arriba</button>
+        <h2>Contacto</h2>
+        <p>email: VRshop@gmail.com</p>
+        <p>telefono:  +34 123456789</p>
+    </footer>
+</body>
+</html>
