@@ -8,9 +8,11 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background: linear-gradient(to right, #ff0000, #660000);
     padding: 20px;
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
 }
 
 .productos-destacados {
@@ -26,8 +28,14 @@ header {
 .producto {
     background-color: #333;
     padding: 15px;
+    border: 2px solid #ff0000;
     border-radius: 10px;
     width: 250px;
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.05);
 }
 
 .producto img {
@@ -36,7 +44,7 @@ header {
 }
 
 .producto h3 {
-    color: #FFD700;
+    color: #ff0000;
 }
 
 .producto p {
@@ -44,7 +52,8 @@ header {
 }
 
 footer {
-    background-color: #4CAF50;
+    background-color: #660000;
     padding: 10px;
     margin-top: 20px;
+    color: white;
 }
