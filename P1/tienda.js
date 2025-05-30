@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 8001;
+const PORT = 8009;
 const DIRECTORY = __dirname; // Directorio donde están los archivos
 
 // Función para obtener el tipo de contenido según la extensión del archivo
