@@ -7,7 +7,7 @@ const usersListDiv = document.getElementById("usersListDiv");
 let CHAT_DATABASE = { general: "<div class='invisibleDiv'></div>" };
 let STATE         = "general";
 let USERS_LIST    = [];
-
+let AUDIO = new Audio('/WebShoot.mp3')
 function getDate() {
   const d = new Date();
   return String(d.getHours()).padStart(2,'0')
@@ -78,7 +78,8 @@ socket.on("message", raw => {
         <span class="message__time">${getDate()}</span>
       </div>`;
   } else {
-    // plantilla mensaje ajeno
+    // mensaje ajeno
+    AUDIO.play()
     CHAT_DATABASE[msg[0]] += `
       <div class="message">
         <p class="message__meta">
