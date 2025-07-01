@@ -51,21 +51,65 @@
     font-family: 'SpideyFont', sans-serif;
   }
   
-  #messagesDiv {
-    flex: none;
-    height: calc(100% - 120px);
-    padding: 12px;
-    overflow-y: auto;
-  }
-  
-  #messagesDiv .message {
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border-left: 4px solid #d32f2f;
-    border-radius: 4px;
-    
-  }
+  /* Estilo común de burbuja */
+#messagesDiv .message {
+  max-width: 60%;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #f1f0f0;
+  color: #333;
+  border-radius: 16px 16px 16px 0;
+  position: relative;
+  word-wrap: break-word;
+}
+
+/* Mensajes recibidos (izquierda) */
+#messagesDiv .message:not(.message--me):not(.message--server) {
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+/* Mensajes propios (derecha) */
+#messagesDiv .message--me {
+  align-self: flex-end;
+  background: #dcf8c6;
+  color: #000;
+  border-radius: 16px 16px 0 16px;
+  margin-left: auto;
+}
+
+/* Opcional: estilo para mensajes del servidor (centrado) */
+#messagesDiv .message--server {
+  align-self: center;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  font-style: italic;
+}
+
+/* Triángulo (flecha) a la izquierda */
+#messagesDiv .message::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+}
+
+/* Flecha para entrantes */
+#messagesDiv .message:not(.message--me):not(.message--server)::before {
+  border-right-color: #f1f0f0;
+  left: -16px;
+  top: 10px;
+}
+
+/* Flecha para salientes */
+#messagesDiv .message--me::before {
+  border-left-color: #dcf8c6;
+  right: -16px;
+  top: 10px;
+}
   
   #messagesDiv .message .chatText {
     font-size: 80px;
