@@ -1,94 +1,106 @@
 /* Reset y fondo telaraña */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  @font-face {
-    font-family: 'SpideyFont';
-    src: url('spider.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  body {
-    font-family: sans-serif;
-    background: url('spider-web.jpg') center/cover no-repeat;
-    height: 100vh;
-    display: flex;
-    color: #eaeaea;
-  }
-  
-  #contentDiv {
-    display: flex;
-    flex: 1;
-  }
-  
-  /* CHAT PRINCIPAL */
-  .mainDiv {
-    flex: 1;
-    height: 100vh;
-    max-height: 1000px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #d32f2f;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  #tittleConversation {
-    background: #c62828;
-    padding: 12px;
-    text-align: center;
-    border-bottom: 2px solid #b71c1c;
-  }
-  
-  #tittleConversationH1 {
-    font-size: 3rem;
-    color: #fff;
-    text-shadow: 2px 2px #000;
-    font-family: 'SpideyFont', sans-serif;
-  }
-  
-  /* Estilo común de burbuja */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'SpideyFont';
+  src: url('spider.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: sans-serif;
+  background: url('spider-web.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  color: #eaeaea;
+}
+
+#contentDiv {
+  display: flex;
+  flex: 1;
+}
+
+/* CHAT PRINCIPAL */
+.mainDiv {
+  flex: 1;
+  height: 100vh;
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #d32f2f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#tittleConversation {
+  background: #c62828;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid #b71c1c;
+}
+
+#tittleConversationH1 {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  font-family: 'SpideyFont', sans-serif;
+}
+
+/* CONTENEDOR DE MENSAJES */
+#messagesDiv {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  /* opcional: espacio bajo el input */
+  margin-bottom: 8px;
+  background: rgba(0,0,0,0.4);
+}
+
+/* Burbuja común  */
 #messagesDiv .message {
-  max-width: 60%;
+  max-width: 70%;
   padding: 8px 12px;
   margin: 6px 0;
-  background: #f1f0f0;
-  color: #333;
-  border-radius: 16px 16px 16px 0;
   position: relative;
   word-wrap: break-word;
+  border-radius: 16px;
 }
 
 /* Mensajes recibidos (izquierda) */
 #messagesDiv .message:not(.message--me):not(.message--server) {
   align-self: flex-start;
-  margin-right: auto;
+  background: #acb4ff;
+  color: #333;
+  border-top-left-radius: 0;
 }
 
 /* Mensajes propios (derecha) */
 #messagesDiv .message--me {
   align-self: flex-end;
-  background: #dcf8c6;
+  background: #f89898;
   color: #000;
-  border-radius: 16px 16px 0 16px;
-  margin-left: auto;
+  border-top-right-radius: 0;
 }
 
-/* Opcional: estilo para mensajes del servidor (centrado) */
+/* Mensajes del servidor (centrado) */
 #messagesDiv .message--server {
   align-self: center;
   background: transparent;
   color: #fff;
-  text-align: center;
-  padding: 4px 8px;
   font-style: italic;
+  margin: 12px 0;
 }
 
-/* Triángulo (flecha) a la izquierda */
+/* Triángulo (flecha) de las burbujas */
 #messagesDiv .message::before {
   content: '';
   position: absolute;
@@ -97,92 +109,88 @@
   border: 8px solid transparent;
 }
 
-/* Flecha para entrantes */
+/* Flecha entrantes (izquierda) */
 #messagesDiv .message:not(.message--me):not(.message--server)::before {
   border-right-color: #f1f0f0;
   left: -16px;
   top: 10px;
 }
 
-/* Flecha para salientes */
+/* Flecha salientes (derecha) */
 #messagesDiv .message--me::before {
   border-left-color: #dcf8c6;
   right: -16px;
   top: 10px;
 }
-  
-  #messagesDiv .message .chatText {
-    font-size: 80px;
-  }
-  /* INPUT */
-  .inputDiv {
-    display: flex;
-    border-top: 2px solid #d32f2f;
-    margin-top: auto;
-  }
-  
-  #inputInput {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-  }
-  
-  #inputInput:focus {
-    outline: none;
-  }
-  
-  #inputButton {
-    width: 100px;
-    background: #1565c0;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
-  #inputButton:hover {
-    background: #0d47a1;
-  }
-  
-  /* BARRA LATERAL */
-  #chatsDiv {
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0 20px 10px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid #d32f2f;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  #secondaryText {
-    background: #d32f2f;
-    padding: 8px;
-    text-align: center;
-    color: #fff;
-    font-size: 1.1rem;
-    border-bottom: 2px solid #b71c1c;
-    font-family: 'SpideyFont', sans-serif;
-  }
-  
-  #usersListDiv {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-  }
-  
-  #usersListDiv .user {
-    padding: 6px 8px;
-    margin-bottom: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  #usersListDiv .user:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
+
+/* INPUT */
+.inputDiv {
+  display: flex;
+  border-top: 2px solid #d32f2f;
+  margin-top: auto;
+}
+
+#inputInput {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+#inputInput:focus {
+  outline: none;
+}
+
+#inputButton {
+  width: 100px;
+  background: #1565c0;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#inputButton:hover {
+  background: #0d47a1;
+}
+
+/* BARRA LATERAL */
+#chatsDiv {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 20px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #d32f2f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#secondaryText {
+  background: #d32f2f;
+  padding: 8px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #b71c1c;
+  font-family: 'SpideyFont', sans-serif;
+}
+
+#usersListDiv {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#usersListDiv .user {
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#usersListDiv .user:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
