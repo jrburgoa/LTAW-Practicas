@@ -23,6 +23,6 @@ electron.app.on('ready', () => {
 
     //cargar contenido de una web
 
-    win.loadURL(h)
+    win.loadFile('index.html');
 
 });
