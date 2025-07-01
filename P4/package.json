@@ -24,7 +24,14 @@
         }
     },
     "devDependencies": {
-        "electron": "^30.0.1",
+        "electron": "^30.5.1",
         "electron-builder": "^24.13.3"
+    },
+    "dependencies": {
+        "colors": "^1.4.0",
+        "express": "^5.1.0",
+        "ip": "^2.0.1",
+        "qrcode": "^1.5.4",
+        "socket.io": "^4.8.1"
     }
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Electron</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    #info, #users, #chat, #controls { padding: 10px; }
+    #users { border-right: 1px solid #ccc; float: left; width: 20%; height: 80vh; overflow-y: auto; }
+    #chat { margin-left: 20%; height: 60vh; overflow-y: auto; border-bottom: 1px solid #ccc; }
+    #controls { position: fixed; bottom: 0; width: 100%; display: flex; }
+    #controls > input { flex: 1; padding: 8px; }
+    #controls > button { padding: 8px 16px; }
+  </style>
+</head>
+<body>
+
+  <h2>Información del sistema</h2>
+  <pre id="info">Cargando&</pre>
+
+  <div id="users">
+    <h3>Usuarios conectados</h3>
+    <ul id="usersList"></ul>
+  </div>
+
+  <div id="chat">
+    <h3>Chat General</h3>
+    <div id="messages"></div>
+  </div>
+
+  <div id="controls">
+    <input id="txtTest" placeholder="Mensaje de test">
+    <button id="btnTest">Enviar Test</button>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
