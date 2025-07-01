@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="spider-icon.png" type="image/png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Spider-Chat Login</title>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="loginDiv">
+    <h1><span>&#x1F577;</span> Spider-Chat <span>&#x1F577;</span> </h1>
+    <p>Ingresa tu nombre de usuario:</p>
+    <input 
+      type="text" 
+      id="userName" 
+      placeholder="Tu alias arácnido" 
+      autocomplete="off"
+    />
+    <button id="userButton" onclick="login()">Entrar</button>
+    <p id="feedbackText"></p>
+  </div>
+</body>
+</html>
