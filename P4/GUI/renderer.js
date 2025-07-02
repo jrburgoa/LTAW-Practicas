@@ -1,40 +1,75 @@
+// renderer.js
 const { ipcRenderer } = require('electron');
 
-// 1) Mostrar info del sistema
+// Helper para formatear la fecha/hora
+function getDate() {
+  const f = new Date();
+  const two = n => n.toString().padStart(2, '0');
+  return `${two(f.getDate())}/${two(f.getMonth()+1)}/${f.getFullYear()} ` +
+         `${two(f.getHours())}:${two(f.getMinutes())}:${two(f.getSeconds())}`;
+}
+
+// 1) Mostrar info de sistema (versiones y URL)
 ipcRenderer.on('systemInfo', (_, info) => {
-  document.getElementById('info').textContent = `
-IP: ${info.ip}
-Puerto: ${info.port}
-Node: ${info.node}
-Chrome: ${info.chrome}
-Electron: ${info.electron}
-  `;
+  document.getElementById('nodeText').textContent     = info.node;
+  document.getElementById('chromeText').textContent   = info.chrome;
+  document.getElementById('electronText').textContent = info.electron;
+  document.getElementById('replaceURL').textContent   = `${info.ip}:${info.port}`;
 });
 
-// 2) Lista de usuarios conectados
+// 2) Actualizar lista y contador de usuarios conectados
 ipcRenderer.on('usersCon', (_, clients) => {
-  const ul = document.getElementById('usersList');
-  ul.innerHTML = '';
+  const countEl = document.getElementById('usersConNum');
+  const listEl  = document.getElementById('usersConList');
+
+  // Número total de usuarios
+  countEl.textContent = clients.length;
+
+  // Lista de usuarios
+  listEl.innerHTML = '';
   clients.forEach(c => {
-    const li = document.createElement('li');
-    li.textContent = c.name;
-    ul.appendChild(li);
+    const div = document.createElement('div');
+    div.classList.add('conectedDiv');
+    div.innerHTML = `
+      <span class="greenDot"> • </span>
+      <span class="notGreenDot">${c.name}</span>
+    `;
+    listEl.appendChild(div);
   });
 });
 
-// 3) Mensajes del chat general
+// 3) Mostrar mensajes en chat general
 ipcRenderer.on('genChat', (_, msg) => {
-  const div = document.getElementById('messages');
-  const p = document.createElement('p');
-  p.innerHTML = `<strong>${msg[1]}:</strong> ${msg[2]}`;
-  div.appendChild(p);
-  div.scrollTop = div.scrollHeight;
+  const container = document.getElementById('smallChatDivDiv');
+  const typeText  = msg[1] === 'server' ? 2 : 1;
+  const bubble    = document.createElement('div');
+  bubble.classList.add(`messageClassDiv${typeText}`);
+  bubble.innerHTML = `
+    <p class="chatTimeText">
+      <span class="userName">${msg[1]}</span>
+      <span class="messDate">${getDate()}</span>
+    </p>
+    <p class="chatText">${msg[2]}</p>
+  `;
+  container.appendChild(bubble);
+  container.scrollTop = container.scrollHeight;
 });
 
-// 4) Botón de envío de test
-document.getElementById('btnTest').addEventListener('click', () => {
-  const text = document.getElementById('txtTest').value.trim();
-  if (!text) return;
-  ipcRenderer.invoke('serverMess', text);
-  document.getElementById('txtTest').value = '';
+
+
+// 4) Cargar código QR cuando esté listo
+ipcRenderer.on('QR', (_, qrPath) => {
+  document.getElementById('QR').src = qrPath;
+});
+
+// 5) Botones para enviar mensajes del servidor
+document.getElementById('sendButton').addEventListener('click', () => {
+  const txt = document.getElementById('inputTextServer').value.trim();
+  if (!txt) return;
+  ipcRenderer.invoke('serverMess', txt);
+  document.getElementById('inputTextServer').value = '';
+});
+
+document.getElementById('testButton').addEventListener('click', () => {
+  ipcRenderer.invoke('serverMess', 'Mensaje de prueba desde GUI');
 });

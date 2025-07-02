@@ -2,37 +2,77 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Chat Electron</title>
-  <style>
-    body { font-family: sans-serif; margin: 0; padding: 0; }
-    #info, #users, #chat, #controls { padding: 10px; }
-    #users { border-right: 1px solid #ccc; float: left; width: 20%; height: 80vh; overflow-y: auto; }
-    #chat { margin-left: 20%; height: 60vh; overflow-y: auto; border-bottom: 1px solid #ccc; }
-    #controls { position: fixed; bottom: 0; width: 100%; display: flex; }
-    #controls > input { flex: 1; padding: 8px; }
-    #controls > button { padding: 8px 16px; }
-  </style>
+  <title>SPIDER-CHAT</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="renderer.css">
+  <script src="renderer.js" defer></script>
+  <script src="renderer_UI.js" defer></script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
 </head>
 <body>
 
-  <h2>Información del sistema</h2>
-  <pre id="info">Cargando&</pre>
+  <!-- PANEL LATERAL IZQUIERDO: INFO DE SISTEMA -->
+  <div id="infoDIV">
+    <div class="infoSection">
+      <h3 class="infoTextTittle">Versiones</h3>
+      <div class="infoText">
+        Versión de Node: 
+        <span class="infoTextGreen" id="nodeText"><!--NODE_VERSION--></span>
+      </div>
+      <div class="infoText">
+        Versión de Chrome: 
+        <span class="infoTextGreen" id="chromeText"><!--CHROME_VERSION--></span>
+      </div>
+      <div class="infoText">
+        Versión de Electron: 
+        <span class="infoTextGreen" id="electronText"><!--ELECTRON_VERSION--></span>
+      </div>
+      <div class="infoText">
+        Versión del server: 
+        <span class="infoTextGreen">1.0.0</span>
+      </div>
+    </div>
 
-  <div id="users">
-    <h3>Usuarios conectados</h3>
-    <ul id="usersList"></ul>
+    <div class="infoSection">
+      <h3 class="infoTextTittle">Conexión</h3>
+      <div class="infoText">
+        URL lanzada en 
+        <span class="infoTextGreen" id="replaceURL"><!--SERVER_URL--></span>
+      </div>
+      <div class="infoText" style="margin-top:8px;">
+        Código QR:
+      </div>
+      <img id="QR" src="QR.png" alt="Código QR de conexión">
+    </div>
   </div>
 
-  <div id="chat">
-    <h3>Chat General</h3>
-    <div id="messages"></div>
+  <!-- ÁREA CENTRAL: CHAT GENERAL -->
+  <div id="chatInfoDiv">
+    <div id="smallChatDiv">
+      <div id="tittleConversation">
+        <p id="tittleConversationH1">General</p>
+      </div>
+      <div id="smallChatDivDiv">
+        <div class="invisibleDiv"></div>
+        <!-- Aquí se insertan los mensajes -->
+      </div>
+      <div id="inputDiv">
+        <input type="text" id="inputTextServer" placeholder="Escribe un mensaje&">
+        <button id="sendButton">Enviar</button>
+        <button id="testButton">Test</button>
+      </div>
+    </div>
+
+    <!-- PANEL DERECHO: USUARIOS CONECTADOS -->
+    <div id="infoChatDiv">
+      <div class="infoText">
+        Usuarios conectados: 
+        <span id="usersConNum"></span>
+      </div>
+      <ul id="usersConList"></ul>
+    </div>
   </div>
 
-  <div id="controls">
-    <input id="txtTest" placeholder="Mensaje de test">
-    <button id="btnTest">Enviar Test</button>
-  </div>
-
-  <script src="renderer.js"></script>
 </body>
 </html>
