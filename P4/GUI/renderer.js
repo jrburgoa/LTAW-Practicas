@@ -71,5 +71,21 @@ document.getElementById('sendButton').addEventListener('click', () => {
 });
 
 document.getElementById('testButton').addEventListener('click', () => {
-  ipcRenderer.invoke('serverMess', 'Mensaje de prueba desde GUI');
+  ipcRenderer.invoke('serverMess', 'Mensaje de prueba');
 });
+
+const input = document.getElementById('inputTextServer');
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    // dispara el click del botón de envío
+    document.getElementById('sendButton').click();
+  }
+});
+// listener para limpiar el chat
+document.getElementById('clearButton')
+  .addEventListener('click', () => {
+    const container = document.getElementById('smallChatDivDiv');
+    // dejamos solo el espaciador invisible
+    container.innerHTML = '<div class="invisibleDiv"></div>';
+    container.scrollTop = 0;
+  });
